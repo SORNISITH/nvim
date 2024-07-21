@@ -33,6 +33,7 @@ require("lazy").setup({
 require("neodev").setup {
   -- add any options here, or leave empty to use the default settings
 }
+require("dapui").setup()
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
@@ -42,6 +43,10 @@ require("mason-nvim-dap").setup {
   ensure_installed = { "codelldb", "firefox" },
   handlers = {}, -- sets up dap in the predefined manner
 }
+vim.fn.sign_define("DapBreakpoint", { text = "🐞", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpointCondition", { text = "❓", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpointRejected", { text = "❌", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define("DapLogPoint", { text = "📘", texthl = "", linehl = "", numhl = "" })
 vim.schedule(function()
   require "mappings"
 end)
