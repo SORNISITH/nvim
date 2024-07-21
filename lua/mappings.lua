@@ -12,3 +12,7 @@ map("n", "<C-h>", ":TmuxNavigateLeft<CR>", { silent = true })
 map("n", "<C-j>", ":TmuxNavigateDown<CR>", { silent = true })
 map("n", "<C-k>", ":TmuxNavigateUp<CR>", { silent = true })
 map("n", "<C-l>", ":TmuxNavigateRight<CR>", { silent = true })
+
+map("n", "<leader>db", ":DapToggleBreakpoint <CR>", { desc = "Add breakpoint at line" })
+
+map("n", "<leader>dr", ":DapContinue <CR>", { desc = "Start or continue the debugger" })

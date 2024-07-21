@@ -1,4 +1,6 @@
 return {
+
+  { "folke/neodev.nvim", opts = {} },
   {
     "stevearc/conform.nvim",
     event = "BufWritePre", -- uncomment for format on save
@@ -7,11 +9,67 @@ return {
     end,
   },
   {
+    "rcarriga/nvim-dap-ui",
+    lazy = true,
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+    config = function()
+      local dap, dapui = require "dap", require "dapui"
+      dap.listeners.before.attach.dapui_config = function()
+        dapui.open()
+      end
+      dap.listeners.before.launch.dapui_config = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated.dapui_config = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited.dapui_config = function()
+        dapui.close()
+      end
+    end,
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    lazy = true,
+    dependencies = {
+      "williamboman/mason.nvim",
+      "mfussenegger/nvim-dap",
+    },
+    opts = {
+      handlers = {},
+    },
+  },
+  {
+    "mfussenegger/nvim-dap",
+    -- config = function(_, _)
+    --   require("core.utils").load_mappings "dap"
+    -- end,
+  },
+  {
     "neovim/nvim-lspconfig",
     config = function()
       require("nvchad.configs.lspconfig").defaults()
       require "configs.lspconfig"
     end,
+  },
+
+  {
+    "smoka7/hop.nvim",
+    opts = {
+      multi_windows = true,
+      keys = "tnsueoaidgcrlypmbkjvx",
+      uppercase_labels = true,
+    },
+    keys = {
+      {
+        "<leader>fj",
+        function()
+          require("hop").hint_words()
+        end,
+        mode = { "n", "x", "o" },
+        4,
+      },
+    },
   },
 
   {
@@ -48,7 +106,7 @@ return {
   {
     "chentoast/marks.nvim",
     config = function()
-      require("marks").setup {
+      require("marhow to set lua snippet  neovimks").setup {
         default_mappings = true,
       }
     end,
@@ -73,6 +131,8 @@ return {
         "eslint_d",
         "prettierd",
         "sql-formatter",
+        "codelldb",
+        "firefox-debug-adapter",
       },
     },
   },
