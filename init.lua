@@ -8,12 +8,8 @@ if not vim.loop.fs_stat(lazypath) then
   local repo = "https://github.com/folke/lazy.nvim.git"
   vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
 end
---vim.g.lua_snippets_path = vim.fn.stdpath "config" .. "/lua/lua_snippets"
 vim.opt.rtp:prepend(lazypath)
---//bufwritepost
--- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
--- command = "FormatWriteLock",
--- })
+
 local lazy_config = require "configs.lazy"
 
 -- load plugins
@@ -33,7 +29,7 @@ require("lazy").setup({
 require("neodev").setup {
   -- add any options here, or leave empty to use the default settings
 }
-require("dapui").setup()
+
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
@@ -43,6 +39,7 @@ require("mason-nvim-dap").setup {
   ensure_installed = { "codelldb", "firefox" },
   handlers = {}, -- sets up dap in the predefined manner
 }
+require("dapui").setup()
 vim.fn.sign_define("DapBreakpoint", { text = "🐞", texthl = "", linehl = "", numhl = "" })
 vim.fn.sign_define("DapBreakpointCondition", { text = "❓", texthl = "", linehl = "", numhl = "" })
 vim.fn.sign_define("DapBreakpointRejected", { text = "❌", texthl = "", linehl = "", numhl = "" })
