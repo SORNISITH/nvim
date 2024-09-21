@@ -8,6 +8,7 @@ return {
       "cmakelang",
       "cmakelint",
       "emmet-language-server",
+      "clangd",
     },
   },
 }
