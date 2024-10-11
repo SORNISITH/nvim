@@ -1,13 +1,16 @@
 return {
   {
     "craftzdog/solarized-osaka.nvim",
-    lazy = true,
-    priority = 1000,
-    opts = function()
-      return {
-        transparent = true,
-      }
-    end,
+    {
+      "LazyVim/LazyVim",
+      opts = {
+        colorscheme = "solarized-osaka",
+        styles = {
+          sidebars = "transparent",
+          floats = "transparent",
+        },
+      },
+    },
   },
   -- {
   --   "LazyVim/LazyVim",
@@ -15,6 +18,17 @@ return {
   --     colorscheme = "",
   --   },
   -- },
+
+  {
+    "folke/tokyonight.nvim",
+    opts = {
+      transparent = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
+    },
+  },
   { "ellisonleao/gruvbox.nvim" },
 
   -- Configure LazyVim to load gruvbox
