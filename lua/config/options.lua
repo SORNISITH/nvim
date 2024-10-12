@@ -2,9 +2,6 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options hereAAA
 --
---
---
---
 
 vim.o.termguicolors = true -- Enable true color support
 vim.g.mapleader = " "
@@ -36,15 +33,3 @@ vim.opt.wildignore:append({ "*/node_modules/*" })
 vim.opt.splitbelow = true -- Put new windows below current
 vim.opt.splitright = true -- Put new windows right of current
 vim.opt.splitkeep = "cursor"
-
--- Undercurl
-
--- Add asterisks in block comments
-vim.opt.formatoptions:append({ "r" })
-
-vim.cmd([[au BufNewFile,BufRead *.astro setf astro]])
-vim.cmd([[au BufNewFile,BufRead Podfile setf ruby]])
-
-if vim.fn.has("nvim-0.8") == 1 then
-end
-vim.opt.cmdheight = 0
