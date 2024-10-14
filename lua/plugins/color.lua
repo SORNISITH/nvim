@@ -40,6 +40,7 @@ return {
   {
     "craftzdog/solarized-osaka.nvim",
     opts = {
+      style = "night",
       transparent = true,
       styles = {
         sidebars = "transparent",
@@ -66,8 +67,8 @@ return {
         floats = "transparent",
       },
     },
+    -- Configure LazyVim to load gruvbox
   },
-  -- Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",
     opts = {
