@@ -10,6 +10,8 @@ return {
       "emmet-language-server",
       "html-lsp",
       "css-lsp",
+      "clangd",
+      "vtsls",
     },
   },
 }
