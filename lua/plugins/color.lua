@@ -51,6 +51,9 @@ return {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "solarized-osaka",
+      -- colorscheme = "catppuccin",
+      --colorscheme = "gruvbox",
+      --  colorscheme = "kanagawa-",
     },
   },
   {
@@ -63,4 +66,31 @@ return {
       }
     end,
   },
+  {
+    "catppuccin/nvim",
+    lazy = true,
+    priority = 1000,
+    opts = {
+      flavour = "macchiato",
+    },
+  },
+
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = true,
+    priority = 1000,
+    opts = {
+      transparent = true,
+      statementStyle = { bold = true },
+    },
+  },
+  { "ellisonleao/gruvbox.nvim" },
+
+  -- Configure LazyVim to load gruvbox
+  -- {
+  --   "LazyVim/LazyVim",
+  --   opts = {
+  --     colorscheme = "gruvbox",
+  --   },
+  -- },
 }
