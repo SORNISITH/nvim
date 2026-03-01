@@ -44,6 +44,7 @@
 --     --   * https://github.com/craftzdog/solarized-osaka.nvim/tree/main/lua/solarized-osaka/groups
 --     -- flash = true,
 --   },
+--
 -- }
 --
 return {
@@ -53,7 +54,7 @@ return {
       colorscheme = "solarized-osaka",
       -- colorscheme = "catppuccin",
       --colorscheme = "gruvbox",
-      --  colorscheme = "kanagawa-",
+      --colorscheme = "kanagawa",
     },
   },
   {

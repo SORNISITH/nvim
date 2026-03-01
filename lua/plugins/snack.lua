@@ -1,5 +1,4 @@
 return {
-
   {
     "folke/snacks.nvim",
     priority = 1000,
@@ -11,7 +10,7 @@ return {
       -- refer to the configuration section below
       bigfile = { enabled = true },
       dashboard = { enabled = false },
-      explorer = { enabled = false },
+      explorer = { enabled = true },
       indent = { enabled = true },
       input = { enabled = true },
       dim = { enabled = true },
