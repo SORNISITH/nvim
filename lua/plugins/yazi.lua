@@ -4,7 +4,7 @@ return {
     "mikavilpas/yazi.nvim",
     keys = {
       {
-        "<leader>y",
+        "<leader>v",
         "<cmd>Yazi<CR>",
         desc = "Open Yazi file manager",
       },
