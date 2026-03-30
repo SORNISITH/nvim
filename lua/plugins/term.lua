@@ -8,7 +8,6 @@ return {
         direction = "float",
         start_in_insert = true, -- always start in insert mode
         float_opts = {
-          border = "none",
           width = function()
             return vim.o.columns
           end,
