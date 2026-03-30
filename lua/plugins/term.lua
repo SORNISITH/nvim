@@ -5,39 +5,47 @@ return {
     config = function()
       local toggleterm = require("toggleterm")
       toggleterm.setup({
-        start_in_insert = true, -- only on first open
+        start_in_insert = true, -- always insert mode on first open
         open_mapping = false, -- custom mapping
         direction = "float",
         float_opts = {
-          border = "none",
+          border = "none", -- no border
           width = function()
             return vim.o.columns
-          end,
+          end, -- full width
           height = function()
             return vim.o.lines - 1
-          end,
-          winblend = 0,
+          end, -- full height minus command line
+          winblend = 0, -- transparency 0%
         },
       })
 
       local key = vim.keymap.set
 
-      -- Normal toggle function (does not force insert every time)
+      -- toggle terminal function (always insert)
       local function toggle_term()
         vim.cmd("ToggleTerm")
+        vim.cmd("startinsert")
       end
 
-      -- Keymaps
+      -- keymaps
       key("n", "<C-_>", toggle_term)
       key("i", "<C-_>", function()
         vim.cmd("stopinsert")
         toggle_term()
       end)
-      key("t", "<C-_>", toggle_term)
+      key("t", "<C-_>", function()
+        vim.cmd("ToggleTerm")
+        vim.cmd("startinsert")
+      end)
 
-      -- Terminal mode: go to normal mode
-      key("t", "<Esc>", [[<C-\><C-n>]], { desc = "Terminal Normal Mode" })
-      key("t", "<C-n>", [[<C-\><C-n>]], { desc = "Terminal Normal Mode" })
+      -- auto-insert for all terminals
+      vim.api.nvim_create_autocmd("TermOpen", {
+        pattern = "*",
+        callback = function()
+          vim.cmd("startinsert")
+        end,
+      })
     end,
   },
 }
