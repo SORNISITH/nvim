@@ -5,6 +5,7 @@ return {
     config = function()
       local toggleterm = require("toggleterm")
       toggleterm.setup({
+        start_in_insert = true, -- always insert mode on first open
         open_mapping = false, -- custom mapping
         direction = "float",
         float_opts = {

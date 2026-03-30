@@ -1,6 +1,5 @@
 return {
   { "nvim-neo-tree/neo-tree.nvim", enabled = false },
-
   {
     "mikavilpas/yazi.nvim",
     keys = {
@@ -10,19 +9,23 @@ return {
         desc = "Open Yazi file manager",
       },
     },
-    config = function()
-      require("yazi").setup({
-        layout = "float",
-        window = {
-          border = "none", -- no border
-          width = vim.o.columns, -- full width
-          height = vim.o.lines, -- full height
-          row = 0, -- top-left corner
-          col = 0,
-          winblend = 0, -- optional: transparency
-        },
-        auto_open = false,
-      })
-    end,
+    opts = {
+      layout = "float",
+      floating_window_scaling_factor = 1, -- full size
+      yazi_floating_window_border = "none", -- no border
+      yazi_floating_window_winblend = 0, -- optional transparency
+      yazi_floating_window_zindex = 50, -- top layer
+      auto_open = false,
+
+      hooks = {
+        before_opening_window = function(window_options)
+          -- Force window to top-left
+          window_options.row = 0
+          window_options.col = 0
+          window_options.width = vim.o.columns
+          window_options.height = vim.o.lines
+        end,
+      },
+    },
   },
 }

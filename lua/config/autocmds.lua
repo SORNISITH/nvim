@@ -10,5 +10,17 @@ vim.filetype.add({
     hbs = "html",
   },
 })
-
+-- Automatically change cwd to current buffer's directory
+-- vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+--   callback = function()
+--     local buf = vim.api.nvim_get_current_buf()
+--     local buf_path = vim.api.nvim_buf_get_name(buf)
+--     if buf_path ~= "" then
+--       local buf_dir = vim.fn.fnamemodify(buf_path, ":p:h")
+--       vim.cmd("lcd " .. buf_dir) -- local cwd per window
+--       -- use `cd` instead if you want global cwd:
+--       -- vim.cmd("cd " .. buf_dir)
+--     end
+--   end,
+-- })
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
