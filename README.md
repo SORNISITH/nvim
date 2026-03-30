@@ -7,7 +7,7 @@ How to Install JAVA lsp
 
 ```bash
 
-cp .jdtls to ~/.local/share/nvim/mason/packages/jdtls
+cp ./jdtls  ~/.local/share/nvim/mason/packages/
 ln -s link execut file to ~/.local/share/nvim/mason/bin/jdtls
 
 cp ./jdtls/lombok.jar ~/.local/share/nvim/mason/share/jdtls/lombok.jar

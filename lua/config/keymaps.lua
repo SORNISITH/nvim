@@ -7,6 +7,12 @@
 local key = LazyVim.safe_keymap_set
 
 key("n", "<C-a>", "gg<S-v>G")
-vim.api.nvim_set_keymap("n", ";", ":", { noremap = true, silent = false })
-
+key("n", ";", ":", { noremap = true, silent = false })
+--key("n", "<leader>t", ":terminal<CR>")
 -- Add any additional keymaps here
+-- vim.keymap.set("n", "<C-_>", "<cmd>ToggleTerm<CR>", { desc = "Toggle Terminal" })
+-- vim.keymap.set("t", "<C-_>", [[<C-\><C-n><cmd>ToggleTerm<CR>]], { desc = "Toggle Terminal" })
+
+key("n", "<C-_>", "<cmd>ToggleTerm<CR><cmd>startinsert<CR>")
+key("i", "<C-_>", "<Esc><cmd>ToggleTerm<CR><cmd>startinsert<CR>")
+key("t", "<C-_>", [[<C-\><C-n><cmd>ToggleTerm<CR><cmd>startinsert<CR>]])
