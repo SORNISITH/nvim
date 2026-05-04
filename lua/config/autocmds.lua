@@ -10,6 +10,21 @@ vim.filetype.add({
     hbs = "html",
   },
 })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "text",
+  callback = function(args)
+    local bufnr = args.buf
+
+    vim.diagnostic.config({
+      virtual_text = false,
+      signs = false,
+      underline = false,
+      update_in_insert = false,
+    }, bufnr)
+
+    vim.diagnostic.enable(false, { bufnr = bufnr })
+  end,
+})
 -- Automatically change cwd to current buffer's directory
 -- vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 --   callback = function()

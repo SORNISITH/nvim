@@ -16,3 +16,13 @@ key("n", ";", ":", { noremap = true, silent = false })
 key("n", "<C-_>", "<cmd>ToggleTerm<CR>")
 key("i", "<C-_>", "<Esc><cmd>ToggleTerm<CR>")
 key("t", "<C-_>", [[<C-\><C-n><cmd>ToggleTerm<CR>]])
+
+-- Navigation in Insert Mode
+key("n", "<C-a>", "<Home>") -- Move to beginning of line
+key("n", "<C-e>", "<End>") -- Move to end of line
+key("n", "<C-b>", "<Left>") -- Move back one character
+key("n", "<C-f>", "<Right>") -- Move forward one character
+key("n", "<C-n>", "<Down>") -- Move to next line
+key("n", "<C-p>", "<Up>") -- Move to previous line
+key("n", "<C-d>", "<Del>") -- Delete character forward
+key("n", "<C-k>", "<C-o>D") -- Kill to end of line
