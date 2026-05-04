@@ -53,8 +53,8 @@ return {
     opts = {
       colorscheme = "solarized-osaka",
       -- colorscheme = "catppuccin",
-      --colorscheme = "gruvbox",
-      --colorscheme = "kanagawa",
+      --  colorscheme = "gruvbox",
+      -- colorscheme = "kanagawa",
     },
   },
   {
